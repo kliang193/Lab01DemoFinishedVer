@@ -13,6 +13,9 @@ int main() //call "./area_calculator" to run program in terminal
     //prompt user to choose Triangle or Rectangle
     cout << "Choose Triangle(0) or Rectangle(1) " << endl;
     cin >> choice;
+    if(choice != 0 || choice != 1){//if choice is not 0 or 1, print error message
+        cout << "Wrong input!" << endl;
+    }
     //program splits depending on choice
     if(choice == 0){
         //prompt user to enter dimensions
@@ -53,9 +56,6 @@ int main() //call "./area_calculator" to run program in terminal
         else{//if demsions are not at least 1, print error message
             cout << "wrong input!" << endl;
         }
-    }
-    if(choice != 0 || choice != 1){//if choice is not 0 or 1, print error message
-        cout << "Wrong input!" << endl;
     }
     return 0;
 }
