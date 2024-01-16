@@ -13,8 +13,9 @@ int main() //call "./area_calculator" to run program in terminal
     //prompt user to choose Triangle or Rectangle
     cout << "Choose Triangle(0) or Rectangle(1) " << endl;
     cin >> choice;
-    if(choice != 0 || choice != 1){//if choice is not 0 or 1, print error message
-        cout << "Wrong input!" << endl;
+    if(choice != 0 && choice != 1 && isalpha(choice)){//if choice is not 0 or 1, print error message
+        cout << "Wrong input!(00)" << endl;
+        return 0;
     }
     //program splits depending on choice
     if(choice == 0){
@@ -33,8 +34,13 @@ int main() //call "./area_calculator" to run program in terminal
             //calculate area of triangle
             cout << "Triangle Area: " << tri.area() << endl;
         }
+        else if(isalpha(tribase) || isalpha(triheight)){
+            cout << "Wrong Input(a)" << endl;
+            return 0;
+        }
         else{//if dimensions are not at least 1, print error message
-            cout << "Wrong input!" << endl;
+            cout << "Wrong input!(0)" << endl;
+            return 0;
         }
     }
     if(choice == 1){//Rectanngle choice
@@ -53,8 +59,13 @@ int main() //call "./area_calculator" to run program in terminal
             //calculate area
             cout << "Rectangle area: " << rect.area() << endl;
         }
+        else if(isalpha(rectheight) || isalpha(rectwidth)){
+            cout << "Wrong Input(a2)" << endl;
+            return 0;
+        }
         else{//if demsions are not at least 1, print error message
-            cout << "wrong input!" << endl;
+            cout << "wrong input!(1)" << endl;
+            return 0;
         }
     }
     return 0;
