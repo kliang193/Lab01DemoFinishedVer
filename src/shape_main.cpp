@@ -13,7 +13,7 @@ int main() //call "./area_calculator" to run program in terminal
     //prompt user to choose Triangle or Rectangle
     cout << "Choose Triangle(0) or Rectangle(1) " << endl;
     cin >> choice;
-    if(choice != 0 && choice != 1 && isalpha(choice)){//if choice is not 0 or 1, print error message
+    if(choice < 0 || choice > 2 || !choice){//if choice is not 0 or 1, print error message
         cout << "Wrong input!(00)" << endl;
         return 0;
     }
