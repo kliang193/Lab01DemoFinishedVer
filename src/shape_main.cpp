@@ -11,16 +11,12 @@ int main() //call "./area_calculator" to run program in terminal
     int tribase, triheight;
     int choice;
     //prompt user to choose Triangle or Rectangle
-    cout << "Choose Triangle(0) or Rectangle(1) " << endl;
+    cout << "Choose Triangle(1) or Rectangle(2) " << endl;
     cin >> choice;
-    if(choice < 0 || choice > 2 || !choice){//if choice is not 0 or 1, print error message
-        cout << "Wrong input!(00)" << endl;
-        return 0;
-    }
     //program splits depending on choice
-    if(choice == 0){
+    if(choice == 1){
         //prompt user to enter dimensions
-        cout << "You have choosen Trigangle, set your base: " << endl;
+        cout << "You have choosen Triangle, set your base: " << endl;
         cin >> tribase;
         cout << "Set your triangle's height" << endl;
         cin >> triheight;
@@ -34,7 +30,11 @@ int main() //call "./area_calculator" to run program in terminal
             //calculate area of triangle
             cout << "Triangle Area: " << tri.area() << endl;
         }
-        else if(isalpha(tribase) || isalpha(triheight)){
+        else if(tribase == 0 || triheight == 0){ 
+            //checks if input is a character type
+            //since we cannot enter a char type into a int variable, the program defualts
+            //the variable as 0, I used this as a isalpha checker instead since isalpha function
+            //does not seem to be working properly.
             cout << "Wrong Input(a)" << endl;
             return 0;
         }
@@ -43,7 +43,7 @@ int main() //call "./area_calculator" to run program in terminal
             return 0;
         }
     }
-    if(choice == 1){//Rectanngle choice
+    else if(choice == 2){//Rectanngle choice
         //prompt user to enter dimensions for Rectangle
         cout << "You have choosen Rectangle, set your width: " << endl;
         cin >> rectwidth;
@@ -59,7 +59,11 @@ int main() //call "./area_calculator" to run program in terminal
             //calculate area
             cout << "Rectangle area: " << rect.area() << endl;
         }
-        else if(isalpha(rectheight) || isalpha(rectwidth)){
+        else if(rectheight == 0 || rectwidth == 0){
+            //checks if input is a character type
+            //since we cannot enter a char type into a int variable, the program defualts
+            //the variable as 0, I used this as a isalpha checker instead since isalpha function
+            //does not seem to be working properly.
             cout << "Wrong Input(a2)" << endl;
             return 0;
         }
@@ -67,6 +71,15 @@ int main() //call "./area_calculator" to run program in terminal
             cout << "wrong input!(1)" << endl;
             return 0;
         }
+    }
+    else if(isdigit(choice) == false){//if choice is not 1 or 2, print error message
+        //this specific if statment checks for char type inputs.
+        cout << "Wrong input!(00)" << endl;
+        return 0;
+    }
+    else {//checks if input is not 1 or 2, prints general error message
+        cout << "Wrong Input!(000)" << endl;
+        return 0;
     }
     return 0;
 }
